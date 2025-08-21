@@ -1,1 +1,540 @@
-# Trabajo-de-ginecologia
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo Estral en Bovinos y Porcinos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .slide {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f8fe 100%);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .phase-card {
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+        }
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #4f46e5, #ec4899);
+            border-radius: 10px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid;
+        }
+        .btn-animate {
+            transition: all 0.3s;
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        .btn-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+        .hormone-line {
+            stroke-width: 3;
+            stroke-linecap: round;
+            fill: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto space-y-12">
+        <!-- Portada -->
+        <div class="slide p-8 text-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Ciclo Estral en Bovinos y Porcinos</h1>
+            <p class="text-xl text-gray-600 mb-8">Análisis comparativo de las fases reproductivas</p>
+            <div class="w-40 h-2 bg-gradient-to-r from-indigo-500 to-pink-500 mx-auto rounded-full"></div>
+            <div class="mt-12 flex justify-center gap-8">
+                <img src="" alt="" class="rounded-xl shadow-md" />
+                <img src="" alt="" class="rounded-xl shadow-md" />
+            </div>
+        </div>
+
+        <!-- Introducción -->
+        <div class="slide p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Introducción</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="text-gray-700 mb-6">El ciclo estral es el proceso fisiológico que prepara el sistema reproductivo femenino para la concepción. En especies domésticas como bovinos y porcinos, este ciclo presenta características particulares.</p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-indigo-500 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Regulado por interacciones neuroendocrinas complejas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-indigo-500 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Varía en duración y características entre especies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-indigo-500 mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Determina los momentos óptimos para la reproducción</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl flex items-center justify-center">
+                    <img src=""Diagrama anatómico comparativo de los sistemas reproductivos de bovinos y porcinos en vista lateral" class="rounded-lg" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Fases del ciclo estral bovino -->
+        <div class="slide p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Fases del Ciclo Estral en Bovinos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="phase-card bg-white p-6 rounded-lg border-l-indigo-500">
+                    <div class="text-indigo-500 font-bold text-lg mb-3">1. Proestro</div>
+                    <p class="text-gray-600 mb-4">3-17 días - Desarrollo folicular</p>
+                    <div class="text-sm text-gray-500">↑ Estrógenos, preparación uterina</div>
+                </div>
+                <div class="phase-card bg-white p-6 rounded-lg border-l-pink-500">
+                    <div class="text-pink-500 font-bold text-lg mb-3">2. Estro</div>
+                    <p class="text-gray-600 mb-4">12-24 horas - Receptividad sexual</p>
+                    <div class="text-sm text-gray-500">Pico de estrógenos, LH</div>
+                </div>
+                <div class="phase-card bg-white p-6 rounded-lg border-l-purple-500">
+                    <div class="text-purple-500 font-bold text-lg mb-3">3. Metestro</div>
+                    <p class="text-gray-600 mb-4">3-5 días - Ovulación</p>
+                    <div class="text-sm text-gray-500">Formación cuerpo lúteo, ↑ progesterona</div>
+                </div>
+                <div class="phase-card bg-white p-6 rounded-lg border-l-blue-500">
+                    <div class="text-blue-500 font-bold text-lg mb-3">4. Diestro</div>
+                    <p class="text-gray-600 mb-4">10-14 días - Mantenimiento</p>
+                    <div class="text-sm text-gray-500">Alta progesterona</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <svg id="bovineChart" width="100%" height="100%"></svg>
+            </div>
+        </div>
+
+        <!-- Fases del ciclo estral porcino -->
+        <div class="slide p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Fases del Ciclo Estral en Porcinos</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="phase-card bg-white p-6 rounded-lg border-l-indigo-500">
+                    <div class="text-indigo-500 font-bold text-lg mb-3">1. Proestro</div>
+                    <p class="text-gray-600 mb-4">3-5 días - Preparación</p>
+                    <div class="text-sm text-gray-500">↑ Estrógenos</div>
+                </div>
+                <div class="phase-card bg-white p-6 rounded-lg border-l-pink-500">
+                    <div class="text-pink-500 font-bold text-lg mb-3">2. Estro</div>
+                    <p class="text-gray-600 mb-4">2-3 días - Celos</p>
+                    <div class="text-sm text-gray-500">Pico hormonal</div>
+                </div>
+                <div class="phase-card bg-white p-6 rounded-lg border-l-purple-500">
+                    <div class="text-purple-500 font-bold text-lg mb-3">3. Metestro</div>
+                    <p class="text-gray-600 mb-4">2-3 días - Ovulación</p>
+                    <div class="text-sm text-gray-500">Formación CL</div>
+                </div>
+                <div class="phase-card bg-white p-6 rounded-lg border-l-blue-500">
+                    <div class="text-blue-500 font-bold text-lg mb-3">4. Diestro</div>
+                    <p class="text-gray-600 mb-4">14-21 días - Mantenimiento</p>
+                    <div class="text-sm text-gray-500">Dominancia progesterona</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <svg id="porcineChart" width="100%" height="100%"></svg>
+            </div>
+        </div>
+
+        <!-- Línea de tiempo comparativa -->
+        <div class="slide p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Comparación: Bovinos vs Porcinos</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Bovinos (21 días promedio)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-indigo-600 mb-2">Proestro (3-17 días)</h4>
+                            <p class="text-gray-600">Desarrollo de folículos, crecimiento endometrial</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-pink-600 mb-2">Estro (12-24 horas)</h4>
+                            <p class="text-gray-600">Receptividad sexual, pico de LH</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-purple-600 mb-2">Metestro (3-5 días)</h4>
+                            <p class="text-gray-600">Formación cuerpo lúteo, ovulación</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-blue-600 mb-2">Diestro (10-14 días)</h4>
+                            <p class="text-gray-600">Actividad secretora, progesterona</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-4">Porcinos (21 días promedio)</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-indigo-600 mb-2">Proestro (3-5 días)</h4>
+                            <p class="text-gray-600">Restauración endometrial</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-pink-600 mb-2">Estro (2-3 días)</h4>
+                            <p class="text-gray-600">Celo, monta, receptividad</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-purple-600 mb-2">Metestro (2-3 días)</h4>
+                            <p class="text-gray-600">Ovulación post-celo</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4 class="font-bold text-blue-600 mb-2">Diestro (14-21 días)</h4>
+                            <p class="text-gray-600">Mantenimiento cuerpo lúteo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Regulación endocrina -->
+        <div class="slide p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Regulación Endocrina</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-6">Hormonas principales</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-lg mr-4">
+                                <svg class="h-6 w-6 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Estrógenos</h4>
+                                <p class="text-gray-600">Producidos en los folículos ováricos. Inducen comportamiento de celo y cambios en el tracto reproductivo.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                                <svg class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a4 4 0 11-8 0 4 4 0 018 0zM9 14a6 6 0 00-6 6v1h12v-1a6 6 0 00-6-6zM21 12h-6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Progesterona</h4>
+                                <p class="text-gray-600">Secretada por el cuerpo lúteo. Mantiene la gestación y suprime nuevos ciclos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">LH (Hormona Luteinizante)</h4>
+                                <p class="text-gray-600">Pico desencadena la ovulación. Secretada por la adenohipófisis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-6">Variación hormonal durante el ciclo</h3>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <img src="" alt="" class="w-full rounded-lg" />
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bibliografía -->
+        <div class="slide p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Referencias Bibliográficas</h2>
+            <div class="space-y-4 text-gray-700">
+                <p>1. Instituto de Reproducción Animal (2020). Fisiología Reproductiva Bovina. <span class="text-indigo-600">Editorial Agropecuaria.</span></p>
+                <p>2. Senger, P.L. (2012). <span class="italic">Pathways to Pregnancy and Parturition.</span> 3rd ed. Pullman, WA: Current Conceptions.</p>
+                <p>3. Comisión Internacional de Reproducción Animal - CIRA (2018). Manual de Reproducción Porcina.</p>
+                <p>4. Herrera, J. & Ortega, M. (2019). "Control endocrino del ciclo estral en mamíferos domésticos". <span class="italic">Revista de Ciencias Veterinarias,</span> 37(2), 45-68.</p>
+                <p>5. Ministerio de Agricultura (2021). Protocolos de Manejo Reproductivo en Especies de Interpecuario. <span class="text-indigo-600">Serie Técnica N°15.</span></p>
+            </div>
+        </div>
+
+        <!-- Créditos -->
+        <div class="slide p-12 text-center bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl">
+            <h2 class="text-3xl font-bold text-white mb-4"></h2>
+            <p class="text-xl text-indigo-100 mb-8">Ciclo Estral en Bovinos y Porcinos</p>
+            <div class="w-32 h-1 bg-white bg-opacity-50 mx-auto mb-8 rounded-full"></div>
+            <p class="text-white mb-2">Benjamin Espinoza Melo</p>
+            <p class="text-indigo-200">Universidad San Sebastian</p>
+            <p class="text-indigo-200 text-sm mt-8"></p>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Función para animar los elementos
+        function toggleAnimations() {
+            document.querySelectorAll('.phase-card').forEach((card, index) => {
+                card.style.animation = card.style.animation ? '' : `fadeInUp 0.5s ease ${index * 0.1}s forwards`;
+            });
+        }
+
+        // Generar gráficos SVG
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuración común para ambos gráficos
+            const config = {
+                width: 800,
+                height: 250,
+                padding: 40,
+                days: 21,
+                phases: {
+                    bovine: [
+                        { name: 'Proestro', start: 0, end: 17, color: '#4F46E5' },
+                        { name: 'Estro', start: 17, end: 17.5, color: '#EC4899' },
+                        { name: 'Metestro', start: 17.5, end: 20.5, color: '#8B5CF6' },
+                        { name: 'Diestro', start: 20.5, end: 21, color: '#3B82F6' }
+                    ],
+                    porcine: [
+                        { name: 'Proestro', start: 0, end: 5, color: '#4F46E5' },
+                        { name: 'Estro', start: 5, end: 7, color: '#EC4899' },
+                        { name: 'Metestro', start: 7, end: 10, color: '#8B5CF6' },
+                        { name: 'Diestro', start: 10, end: 21, color: '#3B82F6' }
+                    ]
+                }
+            };
+
+            // Dibujar gráfico para bovinos
+            drawChart('bovineChart', config.phases.bovine, config);
+            
+            // Dibujar gráfico para porcinos
+            drawChart('porcineChart', config.phases.porcine, config);
+        });
+
+        function drawChart(chartId, phases, config) {
+            const svg = document.getElementById(chartId);
+            svg.innerHTML = '';
+            
+            const width = config.width;
+            const height = config.height;
+            const padding = config.padding;
+            const days = config.days;
+            
+            // Escalas
+            const xScale = (day) => (day / days) * (width - padding * 2) + padding;
+            const yScale = (value) => height - padding - value * (height - padding * 2);
+            
+            // Ejes
+            drawAxis(svg, width, height, padding, days, xScale, yScale);
+            
+            // Fases
+            phases.forEach(phase => {
+                const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                rect.setAttribute('x', xScale(phase.start));
+                rect.setAttribute('y', padding);
+                rect.setAttribute('width', xScale(phase.end) - xScale(phase.start));
+                rect.setAttribute('height', height - padding * 2);
+                rect.setAttribute('fill', phase.color);
+                rect.setAttribute('opacity', '0.1');
+                svg.appendChild(rect);
+                
+                const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                text.setAttribute('x', xScale((phase.start + phase.end) / 2));
+                text.setAttribute('y', height - 10);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('font-size', '10');
+                text.setAttribute('fill', phase.color);
+                text.textContent = phase.name;
+                svg.appendChild(text);
+            });
+            
+            // Línea de estrógenos
+            const estrogenPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            estrogenPath.setAttribute('d', generateHormonePath(0.9, 0.2, 0.6, phases, xScale, yScale));
+            estrogenPath.setAttribute('class', 'hormone-line');
+            estrogenPath.setAttribute('stroke', '#EC4899');
+            svg.appendChild(estrogenPath);
+            
+            // Línea de progesterona
+            const progesteronePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            progesteronePath.setAttribute('d', generateHormonePath(0.1, 0.8, 0.2, phases, xScale, yScale));
+            progesteronePath.setAttribute('class', 'hormone-line');
+            progesteronePath.setAttribute('stroke', '#8B5CF6');
+            svg.appendChild(progesteronePath);
+            
+            // Leyenda
+            const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            legend.setAttribute('transform', `translate(${width - 150}, ${padding})`);
+            
+            const estrogenLegend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            estrogenLegend.setAttribute('transform', 'translate(0, 0)');
+            
+            const estrogenLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            estrogenLine.setAttribute('x1', '0');
+            estrogenLine.setAttribute('y1', '5');
+            estrogenLine.setAttribute('x2', '20');
+            estrogenLine.setAttribute('y2', '5');
+            estrogenLine.setAttribute('stroke', '#EC4899');
+            estrogenLine.setAttribute('stroke-width', '2');
+            estrogenLegend.appendChild(estrogenLine);
+            
+            const estrogenText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            estrogenText.setAttribute('x', '30');
+            estrogenText.setAttribute('y', '8');
+            estrogenText.setAttribute('font-size', '10');
+            estrogenText.textContent = 'Estrógenos';
+            estrogenLegend.appendChild(estrogenText);
+            
+            const progesteroneLegend = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            progesteroneLegend.setAttribute('transform', 'translate(0, 20)');
+            
+            const progesteroneLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            progesteroneLine.setAttribute('x1', '0');
+            progesteroneLine.setAttribute('y1', '5');
+            progesteroneLine.setAttribute('x2', '20');
+            progesteroneLine.setAttribute('y2', '5');
+            progesteroneLine.setAttribute('stroke', '#8B5CF6');
+            progesteroneLine.setAttribute('stroke-width', '2');
+            progesteroneLegend.appendChild(progesteroneLine);
+            
+            const progesteroneText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            progesteroneText.setAttribute('x', '30');
+            progesteroneText.setAttribute('y', '8');
+            progesteroneText.setAttribute('font-size', '10');
+            progesteroneText.textContent = 'Progesterona';
+            progesteroneLegend.appendChild(progesteroneText);
+            
+            legend.appendChild(estrogenLegend);
+            legend.appendChild(progesteroneLegend);
+            svg.appendChild(legend);
+        }
+        
+        function drawAxis(svg, width, height, padding, days, xScale, yScale) {
+            // Eje X
+            const xAxis = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            xAxis.setAttribute('x1', padding);
+            xAxis.setAttribute('y1', height - padding);
+            xAxis.setAttribute('x2', width - padding);
+            xAxis.setAttribute('y2', height - padding);
+            xAxis.setAttribute('stroke', '#9CA3AF');
+            xAxis.setAttribute('stroke-width', '1');
+            svg.appendChild(xAxis);
+            
+            // Marcas y etiquetas del eje X
+            for (let day = 0; day <= days; day += 3) {
+                const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                tick.setAttribute('x1', xScale(day));
+                tick.setAttribute('y1', height - padding);
+                tick.setAttribute('x2', xScale(day));
+                tick.setAttribute('y2', height - padding + 5);
+                tick.setAttribute('stroke', '#9CA3AF');
+                tick.setAttribute('stroke-width', '1');
+                svg.appendChild(tick);
+                
+                const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                label.setAttribute('x', xScale(day));
+                label.setAttribute('y', height - padding + 18);
+                label.setAttribute('text-anchor', 'middle');
+                label.setAttribute('font-size', '10');
+                label.textContent = `Día ${day}`;
+                svg.appendChild(label);
+            }
+            
+            // Eje Y
+            const yAxis = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            yAxis.setAttribute('x1', padding);
+            yAxis.setAttribute('y1', padding);
+            yAxis.setAttribute('x2', padding);
+            yAxis.setAttribute('y2', height - padding);
+            yAxis.setAttribute('stroke', '#9CA3AF');
+            yAxis.setAttribute('stroke-width', '1');
+            svg.appendChild(yAxis);
+            
+            // Marcas y etiquetas del eje Y (concentración relativa)
+            for (let value = 0; value <= 1; value += 0.2) {
+                const y = yScale(value);
+                const tick = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                tick.setAttribute('x1', padding);
+                tick.setAttribute('y1', y);
+                tick.setAttribute('x2', padding + 5);
+                tick.setAttribute('y2', y);
+                tick.setAttribute('stroke', '#9CA3AF');
+                tick.setAttribute('stroke-width', '1');
+                svg.appendChild(tick);
+                
+                const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                label.setAttribute('x', padding - 10);
+                label.setAttribute('y', y + 4);
+                label.setAttribute('text-anchor', 'end');
+                label.setAttribute('font-size', '10');
+                label.textContent = value.toFixed(1);
+                svg.appendChild(label);
+            }
+        }
+        
+        function generateHormonePath(peak1, peak2, trough, phases, xScale, yScale) {
+            let path = `M ${xScale(0)} ${yScale(trough)}`;
+            
+            phases.forEach(phase => {
+                const midPhase = (phase.start + phase.end) / 2;
+                
+                if (phase.name === 'Proestro') {
+                    path += ` C ${xScale(phase.start + (midPhase - phase.start)/2)} ${yScale(trough)}, 
+                             ${xScale(midPhase - (midPhase - phase.start)/2)} ${yScale(peak1)}, 
+                             ${xScale(midPhase)} ${yScale(peak1)}`;
+                }
+                
+                if (phase.name === 'Estro') {
+                    path += ` L ${xScale(midPhase)} ${yScale(peak1)}`;
+                }
+                
+                if (phase.name === 'Metestro') {
+                    path += ` C ${xScale(phase.start + (midPhase - phase.start)/2)} ${yScale(peak1)}, 
+                             ${xScale(midPhase - (midPhase - phase.start)/2)} ${yScale(peak2)}, 
+                             ${xScale(midPhase)} ${yScale(peak2)}`;
+                }
+                
+                if (phase.name === 'Diestro') {
+                    path += ` C ${xScale(phase.start + (midPhase - phase.start)/2)} ${yScale(peak2)}, 
+                             ${xScale(midPhase - (midPhase - phase.start)/2)} ${yScale(trough)}, 
+                             ${xScale(phase.end)} ${yScale(trough)}`;
+                }
+            });
+            
+            return path;
+        }
+    </script>
+</body>
+</html>
